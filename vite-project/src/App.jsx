@@ -1,6 +1,6 @@
 import { useState } from "react";
 import React from "react";
-import confetti from "react-confetti"
+import Confetti from 'react-confetti'
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
@@ -68,10 +68,12 @@ function generateNewDie() {
   return (
     <>
       <Tenzies />
+      {tenzies && <Confetti/> }
 
       <div className="absolute top-10 right-[28rem]">
-        
+      
         <div className="p-8 flex justify-center flex-col items-center">
+        
         <h1 className="m-1 text-2xl font-medium">Tenzies</h1>
         <p className="w-64 mb-2">Roll until all dice are the same. 
           Click each die to freeze it at its current value between rolls.</p>
