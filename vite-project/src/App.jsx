@@ -1,4 +1,5 @@
 import { useState } from "react";
+import React from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
@@ -11,7 +12,13 @@ function App() {
   const [tenzies, setTenzies] = useState(false)
   
   React.useEffect(() => {
-    console.log("Dice state changed")
+    const allHeld = diceChange.every(die => die.isHeld)
+    const firstValue = diceChange[0].value
+    const allSameValue = diceChange.every(die => die.value === firstValue)
+    if(allHeld && allSameValue) {
+      setTenzies(true)
+      console.log("You win")
+    }
   }, [diceChange])
 
 function generateNewDie() {
