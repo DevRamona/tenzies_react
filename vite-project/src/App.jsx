@@ -1,5 +1,6 @@
 import { useState } from "react";
 import React from "react";
+import confetti from "react-confetti"
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
@@ -12,13 +13,9 @@ function App() {
   const [tenzies, setTenzies] = useState(false)
   
   React.useEffect(() => {
-    const allHeld = diceChange.every(die => die.isHeld)
-    const firstValue = diceChange[0].value
-    const allSameValue = diceChange.every(die => die.value === firstValue)
-    if(allHeld && allSameValue) {
-      setTenzies(true)
-      console.log("You win")
-    }
+   const allHeld = diceChange.every(die => die.isHeld)
+   const firstValue = diceChange[0].value
+   const allSameValue = diceChange.every(die => die.value === firstValue)
   }, [diceChange])
 
 function generateNewDie() {
@@ -85,7 +82,7 @@ function generateNewDie() {
      text-white text-2xl"
           onClick={rollDice}
         >
-          Roll
+          {tenzies ? "New game" : "Roll"}
         </button>
       </div>
     </>
