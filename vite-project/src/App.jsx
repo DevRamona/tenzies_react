@@ -8,6 +8,11 @@ import { nanoid } from "nanoid";
 
 function App() {
   const [diceChange, setDiceChange] = useState(allNewDice());
+  const [tenzies, setTenzies] = useState(false)
+  
+  React.useEffect(() => {
+    console.log("Dice state changed")
+  }, [diceChange])
 
 function generateNewDie() {
   return {
