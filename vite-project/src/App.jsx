@@ -16,6 +16,11 @@ function App() {
    const allHeld = diceChange.every(die => die.isHeld)
    const firstValue = diceChange[0].value
    const allSameValue = diceChange.every(die => die.value === firstValue)
+   if(allHeld && allSameValue) {
+    setTenzies(true) 
+      console.log("You won")
+    
+   }
   }, [diceChange])
 
 function generateNewDie() {
@@ -51,7 +56,7 @@ function generateNewDie() {
     }))
 }
 
-  const diceElements = diceChange.map((die) => (
+  const diceElements = diceChange.map(die => (
     <Dices
       key={die.id}
       value={die.value}
